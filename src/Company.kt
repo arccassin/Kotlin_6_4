@@ -34,7 +34,7 @@ class Company(
 
         val currentList = ArrayList<Employee>()
         Collections.sort(personalList)
-        for (i in personalList.indices) {
+        for (i in 0 until count) {
             currentList.add(personalList[i])
         }
 

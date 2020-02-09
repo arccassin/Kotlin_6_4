@@ -30,22 +30,49 @@ fun main() {
         }
 
     }
-
+    println("15 самых высокооплачиваемых")
     var employees: ArrayList<Employee>? = ArrayList()
     employees = company.getTopSalaryStaff(15)
-    println(employees!!.toString())
-
+    if (employees != null) {
+        var counter = 1;
+        for (employee in employees) {
+            println("$counter. ${employee.getMonthSalary()}")
+            counter++
+        }
+    }
+    println("\n30 самых низкооплачиваемых")
     employees = company.getLowestSalaryStaff(30)
-    println(employees!!.toString())
+    if (employees != null) {
+        var counter = 1;
+        for (employee in employees) {
+            println("$counter. ${employee.getMonthSalary()}")
+            counter++
+        }
+    }
 
-    for (i in 1 .. employeeCount / 2){
+    for (i in 1..employeeCount / 2) {
         company.fire(company.getRandomEmployee())
     }
     println("Fire 50% employees!")
-    employees = company.getTopSalaryStaff(15)
-    println(employees!!.toString())
 
+    println("\n15 самых высокооплачиваемых")
+    employees = company.getTopSalaryStaff(15)
+    if (employees != null) {
+        var counter = 1;
+        for (employee in employees) {
+            println("$counter. ${employee.getMonthSalary()}")
+            counter++
+        }
+    }
+
+    println("\n30 самых низкооплачиваемых")
     employees = company.getLowestSalaryStaff(30)
-    println(employees!!.toString())
+    if (employees != null) {
+        var counter = 1;
+        for (employee in employees) {
+            println("$counter. ${employee.getMonthSalary()}")
+            counter++
+        }
+    }
 
 }
