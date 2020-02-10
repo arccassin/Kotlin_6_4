@@ -14,31 +14,24 @@ class Company(
 
     private val personalList = ArrayList<ParentEmployee>()
 
-    fun getTopSalaryStaff(count: Int): ArrayList<Employee>? {
-        if (count == 0 || count > personalList.size) {
-            return null
-        }
+    fun getTopSalaryStaff(count: Int): MutableList<ParentEmployee>? {
 
-        val currentList = ArrayList<Employee>()
-        Collections.sort(personalList)
-        for (i in personalList.size - 1 downTo personalList.size - 1 - count + 1) {
-            currentList.add(personalList[i])
+        val comparator: EmployeeComparator = EmployeeComparator()
+        Collections.sort(personalList, comparator.reversed())
+        if (count == 0 || count > personalList.size) {
+            return personalList
         }
-        return currentList
+        return personalList.subList(0, count)
     }
 
-    fun getLowestSalaryStaff(count: Int): ArrayList<Employee>? {
+    fun getLowestSalaryStaff(count: Int): MutableList<ParentEmployee>? {
+
+        val comparator: EmployeeComparator = EmployeeComparator()
+        Collections.sort(personalList, comparator)
         if (count == 0 || count > personalList.size) {
-            return null
+            return personalList
         }
-
-        val currentList = ArrayList<Employee>()
-        Collections.sort(personalList)
-        for (i in 0 until count) {
-            currentList.add(personalList[i])
-        }
-
-        return currentList
+        return personalList.subList(0, count)
     }
 
     fun hire(employee: ParentEmployee) {

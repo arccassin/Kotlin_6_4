@@ -1,7 +1,4 @@
-import Employees.Employee
-import Employees.Manager
-import Employees.Operator
-import Employees.TopManager
+import Employees.*
 import java.util.ArrayList
 
 /**
@@ -31,7 +28,7 @@ fun main() {
 
     }
     println("15 самых высокооплачиваемых")
-    var employees: ArrayList<Employee>? = ArrayList()
+    var employees: MutableList<ParentEmployee>? = ArrayList()
     employees = company.getTopSalaryStaff(15)
     if (employees != null) {
         var counter = 1;
